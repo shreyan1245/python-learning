@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+            transition: 0.3s;
+        }
+
+        header {
+            background: #306998;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        nav {
+            background: #ffd43b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav button {
+            border: none;
+            background: transparent;
+            margin: 0 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px #ccc;
+        }
+
+        .hero h2 {
+            color: #306998;
+            margin-bottom: 10px;
+        }
+
+        .lessons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #ddd;
+        }
+
+        .card h3 {
+            color: #306998;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #306998;
+            color: white;
+            cursor: pointer;
+        }
+
+        .code {
+            background: #222;
+            color: #00ff88;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .quiz {
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #ddd;
+        }
+
+        .quiz button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .progress {
+            margin-top: 20px;
+        }
+
+        .bar {
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #306998;
+            transition: 0.5s;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background: #306998;
+            color: white;
+        }
+
+        .dark {
+            background: #121212;
+            color: white;
+        }
+
+        .dark .hero,
+        .dark .card,
+        .dark .quiz {
+            background: #1e1e1e;
+            color: white;
+        }
+
+        .dark .quiz button {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐍 Python Learning Hub</h1>
+    <p>Learn Python from beginner to advanced!</p>
+</header>
+
+<nav>
+    <button onclick="showHome()">Home</button>
+    <button onclick="showLessons()">Lessons</button>
+    <button onclick="showQuiz()">Quiz</button>
+    <button onclick="darkMode()">🌙 Dark Mode</button>
+</nav>
+
+<div class="container">
+
+    <section class="hero" id="home">
+        <h2>Welcome to Python Learning Hub!</h2>
+        <p>Start your journey into the world of Python programming.</p>
+
+        <div class="code">
+print("Hello, World!")
+        </div>
+
+        <div class="progress">
+            <p>Your Progress</p>
+            <div class="bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lessons">
+        <h2>📚 Python Lessons</h2>
+
+        <div class="lessons">
+
+            <div class="card">
+                <h3>1. Introduction</h3>
+                <p>Learn what Python is and why it is popular.</p>
+                <button onclick="completeLesson(10)">Start Lesson</button>
+            </div>
+
+            <div class="card">
+                <h3>2. Variables</h3>
+                <p>Learn how to store information in Python.</p>
+                <button onclick="completeLesson(20)">Start Lesson</button>
+            </div>
+
+            <div class="card">
+                <h3>3. If Statements</h3>
+                <p>Learn how Python makes decisions.</p>
+                <button onclick="completeLesson(30)">Start Lesson</button>
+            </div>
+
+            <div class="card">
+                <h3>4. Loops</h3>
+                <p>Learn how to repeat actions using loops.</p>
+                <button onclick="completeLesson(40)">Start Lesson</button>
+            </div>
+
+            <div class="card">
+                <h3>5. Functions</h3>
+                <p>Learn how to create reusable blocks of code.</p>
+                <button onclick="completeLesson(50)">Start Lesson</button>
+            </div>
+
+            <div class="card">
+                <h3>6. Lists</h3>
+                <p>Learn how to store multiple values.</p>
+                <button onclick="completeLesson(60)">Start Lesson</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="quiz" id="quiz">
+        <h2>🧠 Python Quiz</h2>
+        <br>
+
+        <p><b>What will this code print?</b></p>
+
+        <div class="code">
+print(2 + 3)
+        </div>
+
+        <button onclick="checkAnswer(5)">2</button>
+        <button onclick="checkAnswer(5)">5</button>
+        <button onclick="checkAnswer(5)">23</button>
+        <button onclick="checkAnswer(5)">Error</button>
+
+        <p id="result"></p>
+    </section>
+
+</div>
+
+<footer>
+    <p>🐍 Python Learning Hub | Keep Coding!</p>
+</footer>
+
+<script>
+
+    let progress = 0;
+
+    function completeLesson(value) {
+        progress = value;
+
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        document.getElementById("progress").style.width =
+            progress + "%";
+
+        alert("Lesson completed! 🎉");
+    }
+
+    function checkAnswer(answer) {
+
+        if (answer === 5) {
+            document.getElementById("result").innerHTML =
+                "✅ Correct! Great job!";
+
+            progress += 10;
+
+            if (progress > 100) {
+                progress = 100;
+            }
+
+            document.getElementById("progress").style.width =
+                progress + "%";
+
+        } else {
+            document.getElementById("result").innerHTML =
+                "❌ Try again!";
+        }
+    }
+
+    function darkMode() {
+        document.body.classList.toggle("dark");
+    }
+
+    function showHome() {
+        document.getElementById("home").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function showLessons() {
+        document.getElementById("lessons").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function showQuiz() {
+        document.getElementById("quiz").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+</script>
+
+</body>
+</html>12:38 PM 05-10-2026
